@@ -131,6 +131,21 @@ function movieThis(){
       console.log("Languages: " + response.Language);
       console.log("Plot: " + response.Plot);
       console.log("Actors: " + response.Actors);
-    }else (console.log("If you haven't watched 'Mr. Nobody', then you should:<http://www.imdb.com/title/tt0485947/>. It's on Netflix!"))
-  })
+    }else {
+      console.log(err)
+    }
+  });
 
+  function doWhatItSays() {
+    fs.readfile("random.txt", "utf8", (err, data)); {
+      if (err) {
+        return console.log("Unable to comply." + error);
+      }else {
+        var dataArr = data.split(",");
+        action = dataArr[0];
+        songTitle = dataArr[1];
+        var userSong = action + "" + SongTitle;
+        spotifyThisSong();
+      }
+    }
+  }
