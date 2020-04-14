@@ -106,7 +106,31 @@ function spotifyThisSong() {
       console.log("Unable to comply: " + userSong + " : " + err);
     }
 
-    
-  }
-  )}
+    var songRecord = artist + songName + previewLink + albumName;
+    fs.appendFile("log.txt", songRecord, function(err) {
+      if(err){
+        console.log(err);
+      }
+    });
+  });
 }
+}
+
+function movieThis(){
+  if (userMovie === "") {
+    userMovie = "Mr. Nobody";}
+    var queryURL = "http://www.omdbapi.com/?t=" + userMovie + "&y=&plot=short&apikey=trilogy";
+  }
+  
+  axios.get(queryURL).then(function(response, err){
+    if(response) {
+      console.log("Title: " + response.Title);
+      console.log("Release Year: " + response.Year);
+      console.log("IMDB Rating: " + response.imdbRating);
+      console.log("Country Produced: " + response.Country);
+      console.log("Languages: " + response.Language);
+      console.log("Plot: " + response.Plot);
+      console.log("Actors: " + response.Actors);
+    }else (console.log("If you haven't watched 'Mr. Nobody', then you should:<http://www.imdb.com/title/tt0485947/>. It's on Netflix!"))
+  })
+
