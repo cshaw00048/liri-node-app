@@ -52,12 +52,12 @@ switch(argument) {
 
 function hiThere(){
   console.log("Well Hello! Please access one of the following commands:");
-  console.log("[Concert-This] - [Spotify-This-Song] - [Movie-This] - [Do-What-It-Says]");
+  console.log("[concert-this] - [spotify-this-song] - [movie-this] - [do-what-it-shiays]");
 }
 
 function concertThis() {
   if(userConcert === "") {
-    userConcert ="Post Malone";
+    userConcert ="Adele";
   }
   var bands = "https://rest.bandsintown.com/artists/" + userConcert + "/events?appid=codingbootcamp";
   axios.get(bands).then(
@@ -120,7 +120,7 @@ function movieThis(){
   if (userMovie === "") {
     userMovie = "Mr. Nobody";}
     var queryURL = "http://www.omdbapi.com/?t=" + userMovie + "&y=&plot=short&apikey=trilogy";
-  }
+  
   
   axios.get(queryURL).then(function(response, err){
     if(response) {
@@ -135,6 +135,7 @@ function movieThis(){
       console.log(err)
     }
   });
+}
 
   function doWhatItSays() {
     fs.readfile("random.txt", "utf8", (err, data)); {
